@@ -9,39 +9,28 @@
 </head>
 <body>
 
-<section id="start">
-        <button>Start</button>
-</section>
-
-<section id="board">
 
     <section id="header" class="hide">
         <span id="countdown-timer">  Countdown timer - </span>
-        <span id="level-counter">  Level counter - </span>
+        <span id="level-counter">level counter</span>
         <span id="score">  Score  </span>
     </section>
 
-    <section id="images">
-        <div id="background-image"></div>
-        <div id="image-box"></div>
+    <section>
+        <img id="country-map" src="./blank-country-maps/jpg/images.png" alt="blank map">
     </section>
 
-<section id="countries" class="hide">
-    <section id="0">
-        <img class="country-image one" src="./blank-country-maps/jpg/blank+map+of+the+Netherlands.jpg" alt="blank country map">
+    <section id="start">
+    <button>Start</button>
     </section>
-    <section id="1">
-        <img class="country-image one" src="./blank-country-maps/jpg/blank+map+of+germany.jpg" alt="blank country map">
-    </section>
-</section>
 
 
-<section id="answer-input" class="hide"> 
+    <section id="answer-input" class="hide"> 
     <label for="guess">Enter your guess here</label>
     <input type="text" id="guess">
-    <button id="button" type="button">Check your answer</button>
-  </section>
-</section>
+    <button id="check-button" type="button">Check your answer</button>
+    </section>
+
 
 <script src="./main.js"></script>
 </body>

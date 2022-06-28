@@ -1,53 +1,69 @@
 //Start game function
 const start = document.getElementById("start");
 const header = document.getElementById("header");
-const countries = document.getElementById("countries")
-const answerInput = document.getElementById("answer-input")
+const answerInput = document.getElementById("answer-input");
+const checkAnswerButton = document.getElementById("check-button");
+let LevelIndex = 0;
+let LevelsPassed = 0;
+
+console.log(LevelIndex);
 
 start.addEventListener("click", initializeBoard);
+
+// const randomCountry, currentCountryIndex
 
 //initialize Board
 function initializeBoard(){
 start.classList.add("hide");
 header.classList.remove("hide");
-countries.classList.remove("hide");
+answerInput.classList.remove("hide");
+changeImage()
 }
-// shuffleCountries = countryAnswers.sort(() => Math.random() - .5);
 
-//showing one level at a time
+//country selector
 
- function showLevel() {
+const countryImages = [
+{
+    "imgSource": "./blank-country-maps/jpg/blank+map+of+the+Netherlands.jpg",
+    "answer": "The Netherlands"
+},
+{
+    "imgSource": "./blank-country-maps/jpg/blank+map+of+germany.jpg",
+    "answer": "Germany",
 
+}
+];
+
+function changeImage() {
+ let imageShown = countryImages[LevelIndex].imgSource;
+  document.getElementById("country-map").src = imageShown;
+}
 
 //accept input
-function checkAnswer(){}
 
+checkAnswerButton.addEventListener("click", checkAnswer);
 
-// let checkAnswer = document.getElementById("button");
-// checkAnswer.onclick = function() {
-//   let input = document.getElementsByTagName("input")[0];
-//   console.log(input);
-// };
-
-//show a country
-
+function checkAnswer(){
+let answer = countryImages[LevelIndex].answer;
+let input = document.getElementById("guess").value;
+if (answer === input){
+console.log(true);
+LevelIndex++;
+LevelsPassed++;
+changeImage();
+} else {console.log(false);
+}
 }
 
-//questions
 
-const countryAnswers = [
-    {
-     country: 0,
-      answer: "The Netherlands Holland"
-    },
-    {
-      country: 1,
-      answer: "Germany"
-    },
-    {
-      country: 2,
-      answer: "France"
-    }
-  ];
+//timer
 
-//end game
+
+//Game over
+function gameOver() {
+    if (LevelsPassed === 21)
+    console.log(gameOver)
+}
+//score
+
+

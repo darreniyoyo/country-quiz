@@ -65,9 +65,8 @@ function restartTimer (){
 const countryImages = [
 {
     "imgSource": "./images/the-netherlands.jpeg",
-    "answer": "The Netherlands",
-    "answer2": "Netherlands",
-    "answer3": "Holland"
+    "answer": ["The Netherlands", "Netherlands", "Holland"]
+
 },
 {
     "imgSource": "./images/germany.jpeg",
@@ -141,17 +140,17 @@ const countryImages = [
 },
 {
     "imgSource": "images/the-philippines.jpeg",
-    "answer": "The Philippines",
+    "answer": ["The Philippines", "Philippines"]
 
 },
 {
     "imgSource": "./images/uk.jpeg",
-    "answer": "The UK",
+    "answer": ["The UK", "The U.K.","UK", "U.K.", "United Kingdom", "The United Kingdom", "Great Britain"]
 
 },
 {
     "imgSource": "./images/usa.jpeg",
-    "answer": "The USA",
+    "answer": ["The USA", "USA", "U.S.A.", "United States", "The United States", "America"]
 
 },
 {
@@ -161,16 +160,24 @@ const countryImages = [
 },
 {
     "imgSource": "./images/uae.jpeg",
-    "answer": "UAE",
+    "answer": ["UAE", "U.A.E", "The UAE", "The U.A.E.", "The United Arab Emirates", "United Arab Emirates"]
 
 }
 ];
+
+
 
 function changeImage() {
  let imageShown = countryImages[levelIndex].imgSource;
   document.getElementById("country-map").src = imageShown;
 }
-
+let matched = true
+for (let a=0; a < countryImages.answer.length; a++) {
+    if (!answerInput.match(answer[levelIndex])) {
+      matched = false
+      break
+    }
+}
 
 //accept input
 

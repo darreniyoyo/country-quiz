@@ -4,16 +4,21 @@ const start = document.getElementById("start");
 const header = document.getElementById("header");
 const answerInput = document.getElementById("answer-input");
 const checkAnswerButton = document.getElementById("check-button");
-let level = document.getElementById("level-counter").innerHTML;
-let score = document.getElementById("score-count").innerHTML;
+let level = document.getElementById("level-counter");
+let score = document.getElementById("score-count");
+let timerDisplay = document.getElementById("countdown-timer");
+let title = document.getElementById("title") 
 
 let levelIndex = 0;
 let levelsPassed = 0;
 let livesRemaining = 3;
-let scoreIndex = 0;
+let timeRemaining = 25;
 
 console.log(levelIndex);
 console.log(livesRemaining);
+console.log(levelsPassed);
+console.log(timeRemaining);
+console.log(score.innerText)
 
 //initialize board
 
@@ -28,19 +33,32 @@ startTimer();
 }
 
 //timer
-function startTimer (){
-const intervalId = setInterval(function () {
-  let timer = document.getElementById("countdown-timer").innerHTML;
-  if (timer > 0) {
-    return timer;
-    console.log(timer);
-  } else {
-    console.log("Game Over");
-    clearInterval(intervalId);
+let timer;
+
+function countDown(){
+    if (timeRemaining >= 0) {
+    timerDisplay.innerText = timeRemaining;
+   } else {
+    title.innerText = "GAME OVER!";
+    stopTimer();
   }
-  timer--;
-}, 1000);
+  timeRemaining--;
+};
+
+function startTimer(){
+    timer = setInterval(countDown, 1000);
 }
+
+function stopTimer(){
+    clearInterval(timer);
+};
+
+function restartTimer (){
+    clearInterval(timer);
+    timerDisplay.innerText = timeRemaining += 25;
+    startTimer();
+};
+
 
 //level counter
 
@@ -52,12 +70,17 @@ const intervalId = setInterval(function () {
 
 const countryImages = [
 {
-    "imgSource": "./images/blank+map+of+the+Netherlands.jpeg",
+    "imgSource": "./images/blank+map+of+the+netherlands.jpeg",
     "answer": "The Netherlands"
 },
 {
     "imgSource": "./images/blank+map+of+germany.jpeg",
     "answer": "Germany",
+
+},
+{
+    "imgSource": "./images/blank+map+of+australia.jpeg",
+    "answer": "Australia",
 
 }
 ];
@@ -67,10 +90,6 @@ function changeImage() {
   document.getElementById("country-map").src = imageShown;
 }
 
-//page update
-function updatePage (){
-
-}
 
 //accept input
 
@@ -80,14 +99,20 @@ function checkAnswer(){
 let answer = countryImages[levelIndex].answer;
 let input = document.getElementById("guess").value;
 if (answer === input){ //find a way to accept multiple correct answers
-    console.log(true); // return correct answer
+     // return correct answer
     levelIndex++;
     levelsPassed++;
-    initializeBoard()
+    restartTimer();
+    changeImage();
+    return true;
 } else {
     console.log(false); //return incorrect message
     livesRemaining--;
 }
+}
+
+function printScore () {
+
 }
 
 console.log(levelsPassed);

@@ -4,6 +4,7 @@ const start = document.getElementById("start");
 const header = document.getElementById("header");
 const answerInput = document.getElementById("answer-input");
 const checkAnswerButton = document.getElementById("check-button");
+const tryAgainButton = document.getElementById("try-again");
 
 let round = document.getElementById("round-counter");
 let timerDisplay = document.getElementById("countdown-timer");
@@ -14,7 +15,7 @@ let title = document.getElementById("title");
 let levelIndex = 0;
 let roundCount = 1;
 let livesRemaining = 3;
-let timeRemaining = 25;
+let timeRemaining = 5;
 
 lives.innerText = livesRemaining;
 round.innerText = roundCount;
@@ -40,8 +41,7 @@ function countDown(){
     if (timeRemaining >= 0) {
     timerDisplay.innerText = timeRemaining;
    } else {
-    title.innerText = "GAME OVER!";
-    stopTimer();
+    endGame()
   }
   timeRemaining--;
 };
@@ -113,13 +113,20 @@ if (answer === input){ //find a way to accept multiple correct answers
     lives.innerText = livesRemaining;
 }}
 // game over
-function gameOver (){
-    if (lives.innerText === "0") {
+ if (livesRemaining === 0) {
         endGame()
     }
-}
+
 function endGame (){
     stopTimer();
-    title.innerText = "GAME OVER!";
     document.getElementById("country-map").src = "./images/starting-globe.png";
+    document.getElementById("info1").innerText = "GAME OVER"
+    document.getElementById("info2").innerText = "Try Again?"
+    answerInput.classList.add("hide");
+    tryAgainButton.classList.remove("hide");
+    tryAgainButton.addEventListener("click", reload);
+}
+
+function reload (){
+    window.location.reload();
 }

@@ -71,101 +71,101 @@ function restartTimer (){
 
 const countryImages = [
 {
-    "imgSource": "./images/blank+map+of+the+netherlands.jpeg",
+    "imgSource": "./images/the-netherlands.jpeg",
     "answer": "The Netherlands"
 },
 {
-    "imgSource": "./images/blank+map+of+germany.jpeg",
+    "imgSource": "./images/germany.jpeg",
     "answer": "Germany",
 
 },
 {
-    "imgSource": "./images/blank+map+of+australia.jpeg",
+    "imgSource": "./images/australia.jpeg",
     "answer": "Australia",
 
 },
 {
-    "imgSource": "./images/blank+map+of+brazil.jpeg",
+    "imgSource": "./images/brazil.jpeg",
     "answer": "Brazil",
 
 },
 {
-    "imgSource": "./images/blank+map+of+china.jpeg",
+    "imgSource": "./images/china.jpeg",
     "answer": "China",
 
 },
 {
-    "imgSource": "./images/blank+map+of+Greece.jpeg",
+    "imgSource": "./images/greece.jpeg",
     "answer": "Greece",
 
 },
 {
-    "imgSource": "./images/blank+map+of+india.jpeg",
+    "imgSource": "./images/india.jpeg",
     "answer": "India",
 
 },
 {
-    "imgSource": "./images/blank+map+of+indonesia.jpeg",
+    "imgSource": "./images/indonesia.jpeg",
     "answer": "Indonesia",
 
 },
 {
-    "imgSource": "./images/blank+map+of+ireland.jpeg",
+    "imgSource": "./images/ireland.jpeg",
     "answer": "Ireland",
 
 },
 {
-    "imgSource": "./images/blank+map+of+japan.jpeg",
+    "imgSource": "./images/japan.jpeg",
     "answer": "Japan",
 
 },
 {
-    "imgSource": "./images/blank+map+of+mexico.jpeg",
+    "imgSource": "./images/mexico.jpeg",
     "answer": "Mexico",
 
 },
 {
-    "imgSource": "./images/blank+map+of+norway.jpeg",
+    "imgSource": "./images/norway.jpeg",
     "answer": "Norway",
 
 },
 {
-    "imgSource": "./images/blank+map+of+south+africa.jpeg",
+    "imgSource": "./images/south-africa.jpeg",
     "answer": "South Africa",
 
 },
 {
-    "imgSource": "./images/blank+map+of+south+korea.jpeg",
+    "imgSource": "./images/south-korea.jpeg",
     "answer": "South Korea",
 
 },
 {
-    "imgSource": "./images/blank+map+of+spain.jpeg",
+    "imgSource": "./images/spain.jpeg",
     "answer": "Spain",
 
 },
 {
-    "imgSource": "images/blank+map+of+the+philippines.jpeg",
+    "imgSource": "images/the-philippines.jpeg",
     "answer": "The Philippines",
 
 },
 {
-    "imgSource": "./images/blank+map+of+the+uk.jpeg",
+    "imgSource": "./images/uk.jpeg",
     "answer": "The UK",
 
 },
 {
-    "imgSource": "./images/blank+map+of+the+usa.jpeg",
+    "imgSource": "./images/usa.jpeg",
     "answer": "The USA",
 
 },
 {
-    "imgSource": "./images/blank+map+of+turkey.jpeg",
+    "imgSource": "./images/turkey.jpeg",
     "answer": "Turkey",
 
 },
 {
-    "imgSource": "./images/blank+map+of+uae.jpeg",
+    "imgSource": "./images/uae.jpeg",
     "answer": "UAE",
 
 }

@@ -15,7 +15,7 @@ let title = document.getElementById("title");
 let levelIndex = 0;
 let roundCount = 1;
 let livesRemaining = 3;
-let timeRemaining = 5;
+let timeRemaining = 25;
 
 lives.innerText = livesRemaining;
 round.innerText = roundCount;
@@ -41,7 +41,7 @@ function countDown(){
     if (timeRemaining >= 0) {
     timerDisplay.innerText = timeRemaining;
    } else {
-    endGame()
+    gameOver()
   }
   timeRemaining--;
 };
@@ -83,6 +83,91 @@ const countryImages = [
     "imgSource": "./images/blank+map+of+australia.jpeg",
     "answer": "Australia",
 
+},
+{
+    "imgSource": "./images/blank+map+of+brazil.jpeg",
+    "answer": "Brazil",
+
+},
+{
+    "imgSource": "./images/blank+map+of+china.jpeg",
+    "answer": "China",
+
+},
+{
+    "imgSource": "./images/blank+map+of+Greece.jpeg",
+    "answer": "Greece",
+
+},
+{
+    "imgSource": "./images/blank+map+of+india.jpeg",
+    "answer": "India",
+
+},
+{
+    "imgSource": "./images/blank+map+of+indonesia.jpeg",
+    "answer": "Indonesia",
+
+},
+{
+    "imgSource": "./images/blank+map+of+ireland.jpeg",
+    "answer": "Ireland",
+
+},
+{
+    "imgSource": "./images/blank+map+of+japan.jpeg",
+    "answer": "Japan",
+
+},
+{
+    "imgSource": "./images/blank+map+of+mexico.jpeg",
+    "answer": "Mexico",
+
+},
+{
+    "imgSource": "./images/blank+map+of+norway.jpeg",
+    "answer": "Norway",
+
+},
+{
+    "imgSource": "./images/blank+map+of+south+africa.jpeg",
+    "answer": "South Africa",
+
+},
+{
+    "imgSource": "./images/blank+map+of+south+korea.jpeg",
+    "answer": "South Korea",
+
+},
+{
+    "imgSource": "./images/blank+map+of+spain.jpeg",
+    "answer": "Spain",
+
+},
+{
+    "imgSource": "images/blank+map+of+the+philippines.jpeg",
+    "answer": "The Philippines",
+
+},
+{
+    "imgSource": "./images/blank+map+of+the+uk.jpeg",
+    "answer": "The UK",
+
+},
+{
+    "imgSource": "./images/blank+map+of+the+usa.jpeg",
+    "answer": "The USA",
+
+},
+{
+    "imgSource": "./images/blank+map+of+turkey.jpeg",
+    "answer": "Turkey",
+
+},
+{
+    "imgSource": "./images/blank+map+of+uae.jpeg",
+    "answer": "UAE",
+
 }
 ];
 
@@ -103,24 +188,25 @@ if (answer === input){ //find a way to accept multiple correct answers
      // return correct answer
     levelIndex++;
     roundCount++
+    if (roundCount === 21){
+        winGame()
+    }
     round.innerText = roundCount;
     restartTimer();
     changeImage();
-    if (roundCount === 2){
-        winGame()
-    }
+
     return true;
 } else {
     console.log(false); //return incorrect message
     livesRemaining--;
     lives.innerText = livesRemaining;
     if (livesRemaining === 0){
-        endGame();
+        gameOver();
     }
 }}
 // game over
 
-function endGame (){
+function gameOver (){
     stopTimer();
     document.getElementById("country-map").src = "./images/starting-globe.png";
     document.getElementById("info1").innerText = "GAME OVER"

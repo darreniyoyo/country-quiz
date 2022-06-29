@@ -111,11 +111,11 @@ if (answer === input){ //find a way to accept multiple correct answers
     console.log(false); //return incorrect message
     livesRemaining--;
     lives.innerText = livesRemaining;
+    if (livesRemaining === 0){
+        endGame();
+    }
 }}
 // game over
- if (livesRemaining === 0) {
-        endGame()
-    }
 
 function endGame (){
     stopTimer();

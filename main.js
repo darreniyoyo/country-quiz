@@ -56,7 +56,7 @@ function stopTimer(){
 
 function restartTimer (){
     clearInterval(timer);
-    timerDisplay.innerText = timeRemaining += 25;
+    timerDisplay.innerText = timeRemaining += 10;
     startTimer();
 };
 

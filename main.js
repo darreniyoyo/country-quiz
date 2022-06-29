@@ -4,15 +4,20 @@ const start = document.getElementById("start");
 const header = document.getElementById("header");
 const answerInput = document.getElementById("answer-input");
 const checkAnswerButton = document.getElementById("check-button");
+
 let round = document.getElementById("round-counter");
-let score = document.getElementById("score-count");
 let timerDisplay = document.getElementById("countdown-timer");
-let title = document.getElementById("title") 
+let lives = document.getElementById("lives-counter");
+
+let title = document.getElementById("title");
 
 let levelIndex = 0;
-let levelsPassed = 1;
+let roundCount = 1;
 let livesRemaining = 3;
 let timeRemaining = 25;
+
+lives.innerText = livesRemaining;
+round.innerText = roundCount;
 
 //initialize board
 
@@ -97,29 +102,24 @@ let input = document.getElementById("guess").value;
 if (answer === input){ //find a way to accept multiple correct answers
      // return correct answer
     levelIndex++;
-    round.innerText = levelsPassed++;
+    roundCount++
+    round.innerText = roundCount;
     restartTimer();
     changeImage();
     return true;
 } else {
     console.log(false); //return incorrect message
     livesRemaining--;
-}
-}
-
-function printScore () {
-
-}
-
-console.log(levelsPassed);
-
-//game over --- Create a winning / game over page
-if (levelsPassed === 21){
-    console.log("You Win"); // 
-};
-
-if (livesRemaining === 0){
-        console.log("Game Over")
+    lives.innerText = livesRemaining;
+}}
+// game over
+function gameOver (){
+    if (lives.innerText === "0") {
+        endGame()
     }
-
-
+}
+function endGame (){
+    stopTimer();
+    title.innerText = "GAME OVER!";
+    document.getElementById("country-map").src = "./images/starting-globe.png";
+}

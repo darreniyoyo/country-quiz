@@ -60,19 +60,14 @@ function restartTimer (){
     startTimer();
 };
 
-
-//level counter
-
-
-//score
-
-
 //country selector
 
 const countryImages = [
 {
     "imgSource": "./images/the-netherlands.jpeg",
-    "answer": "The Netherlands"
+    "answer": "The Netherlands",
+    "answer2": "Netherlands",
+    "answer3": "Holland"
 },
 {
     "imgSource": "./images/germany.jpeg",
@@ -184,8 +179,8 @@ checkAnswerButton.addEventListener("click", checkAnswer);
 function checkAnswer(){
 let answer = countryImages[levelIndex].answer;
 let input = document.getElementById("guess").value;
-if (answer === input){ //find a way to accept multiple correct answers
-     // return correct answer
+
+if (input.toLowerCase() === answer.toLowerCase()){
     levelIndex++;
     roundCount++
     if (roundCount === 21){

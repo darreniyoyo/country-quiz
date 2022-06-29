@@ -4,21 +4,15 @@ const start = document.getElementById("start");
 const header = document.getElementById("header");
 const answerInput = document.getElementById("answer-input");
 const checkAnswerButton = document.getElementById("check-button");
-let level = document.getElementById("level-counter");
+let round = document.getElementById("round-counter");
 let score = document.getElementById("score-count");
 let timerDisplay = document.getElementById("countdown-timer");
 let title = document.getElementById("title") 
 
 let levelIndex = 0;
-let levelsPassed = 0;
+let levelsPassed = 1;
 let livesRemaining = 3;
 let timeRemaining = 25;
-
-console.log(levelIndex);
-console.log(livesRemaining);
-console.log(levelsPassed);
-console.log(timeRemaining);
-console.log(score.innerText)
 
 //initialize board
 
@@ -31,6 +25,8 @@ answerInput.classList.remove("hide");
 changeImage();
 startTimer();
 }
+//round counter
+
 
 //timer
 let timer;
@@ -101,7 +97,7 @@ let input = document.getElementById("guess").value;
 if (answer === input){ //find a way to accept multiple correct answers
      // return correct answer
     levelIndex++;
-    levelsPassed++;
+    round.innerText = levelsPassed++;
     restartTimer();
     changeImage();
     return true;

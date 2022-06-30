@@ -10,7 +10,7 @@
 <body>
 
 
-    <section id="header" class="hide">
+    <section id="header" class="hide" class="header">
         <span>Round: </span><span id="round-counter"></span>
         <span>Lives: </span><span id="lives-counter"></span>
         <span>Time left: </span><span id="countdown-timer"></span>
@@ -22,7 +22,11 @@
     <p id="info2">Hurry before the timer runs out!</p>
     </div>
     
-    
+    <section id="answer-input" class="hide"> 
+        <label for="guess">Enter your guess here</label>
+        <input type="text" id="guess" autocomplete="off">
+        <button id="check-button" type="button">Check your answer</button>
+        </section>  
 
     <section>
         <img id="country-map" src="./images/starting-globe.png" alt="blank map">
@@ -35,11 +39,7 @@
     <button id="try-again" class="hide">Let's go!</button>
 
 
-    <section id="answer-input" class="hide"> 
-    <label for="guess">Enter your guess here</label>
-    <input type="text" id="guess">
-    <button id="check-button" type="button">Check your answer</button>
-    </section>
+
 
 
 <script src="./main.js"></script>

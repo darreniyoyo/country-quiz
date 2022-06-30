@@ -178,7 +178,7 @@ checkAnswerButton.addEventListener("click", checkAnswer);
 //.toLowerCase();
 
 function checkAnswer(){
-    let input = document.getElementById("guess").value;
+    let input = document.getElementById("guess").value.toLowerCase();
     let answer = countryImages[levelIndex].answer;
    console.log(input);
 if (answer === input){
@@ -197,6 +197,7 @@ if (answer === input){
 function answerCorrect(){
     levelIndex++;
     roundCount++
+    document.getElementById("guess").value = "";
     if (roundCount === 21){
         winGame()
     }

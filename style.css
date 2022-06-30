@@ -3,12 +3,9 @@ font-family:monospace;
 text-align: center;
 font-size: 1.2rem;
 }
-
-body {
-    box-sizing: border-box;
+.hide {
+    display: none;
 }
-
-h
 
 #header {
     border: 1.5px solid black;

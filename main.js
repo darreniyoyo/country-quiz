@@ -65,8 +65,7 @@ function restartTimer (){
 const countryImages = [
 {
     "imgSource": "./images/the-netherlands.jpeg",
-    "answer": ["the netherlands", "netherlands", "holland"]
-
+    "answer": "netherlands"
 },
 {
     "imgSource": "./images/germany.jpeg",
@@ -140,18 +139,17 @@ const countryImages = [
 },
 {
     "imgSource": "images/the-philippines.jpeg",
-    "answer": ["the Philippines", "philippines"]
+    "answer": "philippines"
 
 },
 {
     "imgSource": "./images/uk.jpeg",
-    "answer": ["the uk", "The u.k.","uk", "u.k.", "united kingdom", "the united kingdom", "great britain"]
+    "answer": "united kingdom"
 
 },
 {
     "imgSource": "./images/usa.jpeg",
-    "answer": ["the usa", "usa", "u.s.a.", "united states", "the united states", "america"]
-
+    "answer": "united states of america"
 },
 {
     "imgSource": "./images/turkey.jpeg",
@@ -160,8 +158,7 @@ const countryImages = [
 },
 {
     "imgSource": "./images/uae.jpeg",
-    "answer": ["uae", "u.a.e", "the uae", "the u.a.e.", "the united arab emirates", "united arab emirates"]
-
+    "answer": "united arab emirates"
 }
 ];
 
@@ -175,43 +172,26 @@ function changeImage() {
 
 //accept input
 
-checkAnswerButton.addEventListener("click", checkTypeOf);
+checkAnswerButton.addEventListener("click", checkAnswer);
 
-let answer = countryImages[levelIndex].answer;
-let input = document.getElementById("guess").value.toLowerCase();
 
-function checkTypeOf(){
-let result = Array.isArray(answer); 
-if (result === true){
-    checkArrayAnswer();
-    console.log("is array")
-} else {
-    checkAnswer();
-    console.log("string")
-}
-}
+//.toLowerCase();
 
 function checkAnswer(){
-if (input === answer){
+    let input = document.getElementById("guess").value;
+    let answer = countryImages[levelIndex].answer;
+   console.log(input);
+if (answer === input){
     answerCorrect();
     console.log("answer correct")
+    console.log(input);
+    console.log(answer);
 } else {
     answerWrong();
     console.log("answer wrong")
+    console.log(input);
+    console.log(answer);
 }
-}
-
-function checkArrayAnswer(){
-   let result = answer.includes(input);
-   console.log(`${result} array does (not) match`)
-   console.log(input)
-   if (result === true){
-    answerCorrect();
-    console.log("array answer correct")
-   } else {
-    answerWrong();
-    console.log("array answer wrong")
-   }
 }
 
 function answerCorrect(){

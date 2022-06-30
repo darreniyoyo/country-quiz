@@ -202,8 +202,8 @@ if (input === answer){
 }
 
 function checkArrayAnswer(){
-   let result = answer.includes("holland");
-   console.log(`${result} array does not match`)
+   let result = answer.includes(input);
+   console.log(`${result} array does (not) match`)
    console.log(input)
    if (result === true){
     answerCorrect();

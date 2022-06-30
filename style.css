@@ -1,10 +1,17 @@
 * {
 font-family:monospace;
 text-align: center;
+font-size: 1.2rem;
 }
 
-.hide {
-    display: none;
+body {
+    box-sizing: border-box;
+}
+
+h
+
+#header {
+    border: 1.5px solid black;
 }
 
 .answer-right {
@@ -14,3 +21,4 @@ text-align: center;
 .answer-wrong {
     background-color: red;
 }
+

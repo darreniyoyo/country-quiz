@@ -65,102 +65,102 @@ function restartTimer (){
 const countryImages = [
 {
     "imgSource": "./images/the-netherlands.jpeg",
-    "answer": ["The Netherlands", "Netherlands", "Holland"]
+    "answer": ["the netherlands", "netherlands", "holland"]
 
 },
 {
     "imgSource": "./images/germany.jpeg",
-    "answer": "Germany",
+    "answer": "germany",
 
 },
 {
     "imgSource": "./images/australia.jpeg",
-    "answer": "Australia",
+    "answer": "australia",
 
 },
 {
     "imgSource": "./images/brazil.jpeg",
-    "answer": "Brazil",
+    "answer": "brazil",
 
 },
 {
     "imgSource": "./images/china.jpeg",
-    "answer": "China",
+    "answer": "china",
 
 },
 {
     "imgSource": "./images/greece.jpeg",
-    "answer": "Greece",
+    "answer": "greece",
 
 },
 {
     "imgSource": "./images/india.jpeg",
-    "answer": "India",
+    "answer": "india",
 
 },
 {
     "imgSource": "./images/indonesia.jpeg",
-    "answer": "Indonesia",
+    "answer": "indonesia",
 
 },
 {
     "imgSource": "./images/ireland.jpeg",
-    "answer": "Ireland",
+    "answer": "ireland",
 
 },
 {
     "imgSource": "./images/japan.jpeg",
-    "answer": "Japan",
+    "answer": "japan",
 
 },
 {
     "imgSource": "./images/mexico.jpeg",
-    "answer": "Mexico",
+    "answer": "mexico",
 
 },
 {
     "imgSource": "./images/norway.jpeg",
-    "answer": "Norway",
+    "answer": "norway",
 
 },
 {
     "imgSource": "./images/south-africa.jpeg",
-    "answer": "South Africa",
+    "answer": "south africa",
 
 },
 {
     "imgSource": "./images/south-korea.jpeg",
-    "answer": "South Korea",
+    "answer": "south korea",
 
 },
 {
     "imgSource": "./images/spain.jpeg",
-    "answer": "Spain",
+    "answer": "spain",
 
 },
 {
     "imgSource": "images/the-philippines.jpeg",
-    "answer": ["The Philippines", "Philippines"]
+    "answer": ["the Philippines", "philippines"]
 
 },
 {
     "imgSource": "./images/uk.jpeg",
-    "answer": ["The UK", "The U.K.","UK", "U.K.", "United Kingdom", "The United Kingdom", "Great Britain"]
+    "answer": ["the uk", "The u.k.","uk", "u.k.", "united kingdom", "the united kingdom", "great britain"]
 
 },
 {
     "imgSource": "./images/usa.jpeg",
-    "answer": ["The USA", "USA", "U.S.A.", "United States", "The United States", "America"]
+    "answer": ["the usa", "usa", "u.s.a.", "united states", "the united states", "america"]
 
 },
 {
     "imgSource": "./images/turkey.jpeg",
-    "answer": "Turkey",
+    "answer": "turkey",
 
 },
 {
     "imgSource": "./images/uae.jpeg",
-    "answer": ["UAE", "U.A.E", "The UAE", "The U.A.E.", "The United Arab Emirates", "United Arab Emirates"]
+    "answer": ["uae", "u.a.e", "the uae", "the u.a.e.", "the united arab emirates", "united arab emirates"]
 
 }
 ];
@@ -171,23 +171,50 @@ function changeImage() {
  let imageShown = countryImages[levelIndex].imgSource;
   document.getElementById("country-map").src = imageShown;
 }
-let matched = true
-for (let a=0; a < countryImages.answer.length; a++) {
-    if (!answerInput.match(answer[levelIndex])) {
-      matched = false
-      break
-    }
-}
+
 
 //accept input
 
-checkAnswerButton.addEventListener("click", checkAnswer);
+checkAnswerButton.addEventListener("click", checkTypeOf);
+
+let answer = countryImages[levelIndex].answer;
+let input = document.getElementById("guess").value.toLowerCase();
+
+function checkTypeOf(){
+let result = Array.isArray(answer); 
+if (result === true){
+    checkArrayAnswer();
+    console.log("is array")
+} else {
+    checkAnswer();
+    console.log("string")
+}
+}
 
 function checkAnswer(){
-let answer = countryImages[levelIndex].answer;
-let input = document.getElementById("guess").value;
+if (input === answer){
+    answerCorrect();
+    console.log("answer correct")
+} else {
+    answerWrong();
+    console.log("answer wrong")
+}
+}
 
-if (input.toLowerCase() === answer.toLowerCase()){
+function checkArrayAnswer(){
+   let result = answer.includes("holland");
+   console.log(`${result} array does not match`)
+   console.log(input)
+   if (result === true){
+    answerCorrect();
+    console.log("array answer correct")
+   } else {
+    answerWrong();
+    console.log("array answer wrong")
+   }
+}
+
+function answerCorrect(){
     levelIndex++;
     roundCount++
     if (roundCount === 21){
@@ -198,14 +225,16 @@ if (input.toLowerCase() === answer.toLowerCase()){
     changeImage();
 
     return true;
-} else {
+};
+
+function answerWrong() {
     console.log(false); //return incorrect message
     livesRemaining--;
     lives.innerText = livesRemaining;
     if (livesRemaining === 0){
         gameOver();
     }
-}}
+};
 // game over
 
 function gameOver (){
@@ -230,4 +259,4 @@ function winGame(){
 
 function reload (){
     window.location.reload();
-}
+};

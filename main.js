@@ -15,7 +15,7 @@ let title = document.getElementById("title");
 let levelIndex = 0;
 let roundCount = 1;
 let livesRemaining = 3;
-let timeRemaining = 25;
+let timeRemaining = 15;
 
 lives.innerText = livesRemaining;
 round.innerText = roundCount;
@@ -56,7 +56,7 @@ function stopTimer(){
 
 function restartTimer (){
     clearInterval(timer);
-    timerDisplay.innerText = timeRemaining += 10;
+    timerDisplay.innerText = timeRemaining += 5;
     startTimer();
 };
 

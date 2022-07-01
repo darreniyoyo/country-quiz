@@ -63,9 +63,10 @@ function restartTimer (){
 //country selector
 
 const countryImages = [
+
 {
-    "imgSource": "./images/the-netherlands.jpeg",
-    "answer": "netherlands"
+    "imgSource": "./images/france.jpeg",
+    "answer": "france"
 },
 {
     "imgSource": "./images/germany.jpeg",
@@ -75,6 +76,11 @@ const countryImages = [
 {
     "imgSource": "./images/australia.jpeg",
     "answer": "australia",
+
+},
+{
+    "imgSource": "./images/spain.jpeg",
+    "answer": "spain",
 
 },
 {
@@ -88,8 +94,8 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/greece.jpeg",
-    "answer": "greece",
+    "imgSource": "./images/uk.jpeg",
+    "answer": "united kingdom"
 
 },
 {
@@ -98,9 +104,22 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/indonesia.jpeg",
-    "answer": "indonesia",
+    "imgSource": "./images/usa.jpeg",
+    "answer": "united states of america"
+},
+{
+    "imgSource": "./images/south-africa.jpeg",
+    "answer": "south africa",
 
+},
+{
+    "imgSource": "./images/japan.jpeg",
+    "answer": "japan",
+
+},
+{
+    "imgSource": "./images/the-netherlands.jpeg",
+    "answer": "netherlands"
 },
 {
     "imgSource": "./images/ireland.jpeg",
@@ -108,8 +127,8 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/japan.jpeg",
-    "answer": "japan",
+    "imgSource": "images/the-philippines.jpeg",
+    "answer": "philippines"
 
 },
 {
@@ -123,33 +142,14 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/south-africa.jpeg",
-    "answer": "south africa",
-
-},
-{
     "imgSource": "./images/south-korea.jpeg",
     "answer": "south korea",
 
 },
 {
-    "imgSource": "./images/spain.jpeg",
-    "answer": "spain",
+    "imgSource": "./images/greece.jpeg",
+    "answer": "greece",
 
-},
-{
-    "imgSource": "images/the-philippines.jpeg",
-    "answer": "philippines"
-
-},
-{
-    "imgSource": "./images/uk.jpeg",
-    "answer": "united kingdom"
-
-},
-{
-    "imgSource": "./images/usa.jpeg",
-    "answer": "united states of america"
 },
 {
     "imgSource": "./images/turkey.jpeg",
@@ -157,9 +157,14 @@ const countryImages = [
 
 },
 {
+    "imgSource": "./images/indonesia.jpeg",
+    "answer": "indonesia",
+
+},
+{
     "imgSource": "./images/uae.jpeg",
     "answer": "united arab emirates"
-}
+},
 ];
 
 
@@ -226,6 +231,8 @@ function gameOver (){
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
     tryAgainButton.addEventListener("click", reload);
+
+
 }
 
 function winGame(){
@@ -235,7 +242,7 @@ function winGame(){
     document.getElementById("info2").innerText = "Play Again?"
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
-    tryAgainButton.addEventListener("click", reload);  
+    tryAgainButton.addEventListener("click", reload);
 }
 
 function reload (){

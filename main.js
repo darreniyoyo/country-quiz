@@ -202,8 +202,9 @@ if (answer === input){
 function answerCorrect(){
     levelIndex++;
     roundCount++
+    colorRight()
     document.getElementById("guess").value = "";
-    if (roundCount === 21){
+    if (roundCount === 22){
         winGame()
     }
     round.innerText = roundCount;
@@ -216,6 +217,7 @@ function answerCorrect(){
 function answerWrong() {
     console.log(false); //return incorrect message
     livesRemaining--;
+    colorWrong()
     lives.innerText = livesRemaining;
     if (livesRemaining === 0){
         gameOver();
@@ -248,3 +250,16 @@ function winGame(){
 function reload (){
     window.location.reload();
 };
+function colorNeutral(){
+    document.getElementById("header").style.backgroundColor = "white";
+}
+
+function colorRight(){
+    document.getElementById("header").style.backgroundColor = "green";
+    setTimeout(colorNeutral, 1000);
+}
+
+function colorWrong(){
+    document.getElementById("header").style.backgroundColor = "red";
+    setTimeout(colorNeutral, 1000);
+}

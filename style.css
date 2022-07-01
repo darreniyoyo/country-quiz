@@ -7,15 +7,41 @@ font-size: 1.2rem;
     display: none;
 }
 
+#title {
+font-weight: bolder;
+font-size: larger;
+}
+
+#info1, #info2 {
+font-size: smaller;
+}
+
+img {
+
+    display: block;
+    max-inline-size: 50%;
+    margin: auto;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    object-fit: cover;
+    max-height: 65vh;
+}
+
+body {
+    max-width: 100%;
+    max-height: 100vh;
+}
+
 #header {
     border: 1.5px solid black;
+    margin: 2% 20% 2% 20%;
 }
 
-.answer-right {
-    background-color: green;
+#answer-input {
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
-.answer-wrong {
-    background-color: red;
+#round-counter, #lives-counter, #countdown-timer {
+    font-weight: bolder;
 }
-

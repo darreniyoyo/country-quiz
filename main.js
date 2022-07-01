@@ -63,9 +63,10 @@ function restartTimer (){
 //country selector
 
 const countryImages = [
+
 {
-    "imgSource": "./images/the-netherlands.jpeg",
-    "answer": "netherlands"
+    "imgSource": "./images/france.jpeg",
+    "answer": "france"
 },
 {
     "imgSource": "./images/germany.jpeg",
@@ -75,6 +76,11 @@ const countryImages = [
 {
     "imgSource": "./images/australia.jpeg",
     "answer": "australia",
+
+},
+{
+    "imgSource": "./images/spain.jpeg",
+    "answer": "spain",
 
 },
 {
@@ -88,8 +94,8 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/greece.jpeg",
-    "answer": "greece",
+    "imgSource": "./images/uk.jpeg",
+    "answer": "united kingdom"
 
 },
 {
@@ -98,9 +104,22 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/indonesia.jpeg",
-    "answer": "indonesia",
+    "imgSource": "./images/usa.jpeg",
+    "answer": "united states of america"
+},
+{
+    "imgSource": "./images/south-africa.jpeg",
+    "answer": "south africa",
 
+},
+{
+    "imgSource": "./images/japan.jpeg",
+    "answer": "japan",
+
+},
+{
+    "imgSource": "./images/the-netherlands.jpeg",
+    "answer": "netherlands"
 },
 {
     "imgSource": "./images/ireland.jpeg",
@@ -108,8 +127,8 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/japan.jpeg",
-    "answer": "japan",
+    "imgSource": "images/the-philippines.jpeg",
+    "answer": "philippines"
 
 },
 {
@@ -123,33 +142,14 @@ const countryImages = [
 
 },
 {
-    "imgSource": "./images/south-africa.jpeg",
-    "answer": "south africa",
-
-},
-{
     "imgSource": "./images/south-korea.jpeg",
     "answer": "south korea",
 
 },
 {
-    "imgSource": "./images/spain.jpeg",
-    "answer": "spain",
+    "imgSource": "./images/greece.jpeg",
+    "answer": "greece",
 
-},
-{
-    "imgSource": "images/the-philippines.jpeg",
-    "answer": "philippines"
-
-},
-{
-    "imgSource": "./images/uk.jpeg",
-    "answer": "united kingdom"
-
-},
-{
-    "imgSource": "./images/usa.jpeg",
-    "answer": "united states of america"
 },
 {
     "imgSource": "./images/turkey.jpeg",
@@ -157,9 +157,18 @@ const countryImages = [
 
 },
 {
+    "imgSource": "./images/indonesia.jpeg",
+    "answer": "indonesia",
+
+},
+{
     "imgSource": "./images/uae.jpeg",
     "answer": "united arab emirates"
-}
+},
+{
+    "imgSource": "./images/uae.jpeg",
+    "answer": "united arab emirates"
+},
 ];
 
 
@@ -197,13 +206,16 @@ if (answer === input){
 function answerCorrect(){
     levelIndex++;
     roundCount++
+    colorRight()
     document.getElementById("guess").value = "";
-    if (roundCount === 21){
-        winGame()
-    }
     round.innerText = roundCount;
     restartTimer();
     changeImage();
+    if (roundCount === 22){
+        winGame()
+    }
+    
+ 
 
     return true;
 };
@@ -211,6 +223,7 @@ function answerCorrect(){
 function answerWrong() {
     console.log(false); //return incorrect message
     livesRemaining--;
+    colorWrong()
     lives.innerText = livesRemaining;
     if (livesRemaining === 0){
         gameOver();
@@ -219,25 +232,44 @@ function answerWrong() {
 // game over
 
 function gameOver (){
-    stopTimer();
     document.getElementById("country-map").src = "./images/starting-globe.png";
     document.getElementById("info1").innerText = "GAME OVER"
     document.getElementById("info2").innerText = "Try Again?"
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
     tryAgainButton.addEventListener("click", reload);
+    document.getElementById("header").style.backgroundColor = "red";
+    stopTimer();
+
+
 }
 
 function winGame(){
-    stopTimer();
     document.getElementById("country-map").src = "./images/starting-globe.png";
+    round.innerText = "21";
+    document.getElementById("time-left").innerText = "Final Score: ";
     document.getElementById("info1").innerText = "YOU WIN"
     document.getElementById("info2").innerText = "Play Again?"
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
-    tryAgainButton.addEventListener("click", reload);  
+    tryAgainButton.addEventListener("click", reload);
+    document.getElementById("header").style.backgroundColor = "green";
+    stopTimer();
 }
 
 function reload (){
     window.location.reload();
 };
+function colorNeutral(){
+    document.getElementById("header").style.backgroundColor = "white";
+}
+
+function colorRight(){
+    document.getElementById("header").style.backgroundColor = "green";
+    setTimeout(colorNeutral, 1000);
+}
+
+function colorWrong(){
+    document.getElementById("header").style.backgroundColor = "red";
+    setTimeout(colorNeutral, 1000);
+}

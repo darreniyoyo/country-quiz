@@ -165,6 +165,10 @@ const countryImages = [
     "imgSource": "./images/uae.jpeg",
     "answer": "united arab emirates"
 },
+{
+    "imgSource": "./images/uae.jpeg",
+    "answer": "united arab emirates"
+},
 ];
 
 
@@ -204,12 +208,14 @@ function answerCorrect(){
     roundCount++
     colorRight()
     document.getElementById("guess").value = "";
-    if (roundCount === 22){
-        winGame()
-    }
     round.innerText = roundCount;
     restartTimer();
     changeImage();
+    if (roundCount === 22){
+        winGame()
+    }
+    
+ 
 
     return true;
 };
@@ -226,25 +232,29 @@ function answerWrong() {
 // game over
 
 function gameOver (){
-    stopTimer();
     document.getElementById("country-map").src = "./images/starting-globe.png";
     document.getElementById("info1").innerText = "GAME OVER"
     document.getElementById("info2").innerText = "Try Again?"
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
     tryAgainButton.addEventListener("click", reload);
+    document.getElementById("header").style.backgroundColor = "red";
+    stopTimer();
 
 
 }
 
 function winGame(){
-    stopTimer();
     document.getElementById("country-map").src = "./images/starting-globe.png";
+    round.innerText = "21";
+    document.getElementById("time-left").innerText = "Final Score: ";
     document.getElementById("info1").innerText = "YOU WIN"
     document.getElementById("info2").innerText = "Play Again?"
     answerInput.classList.add("hide");
     tryAgainButton.classList.remove("hide");
     tryAgainButton.addEventListener("click", reload);
+    document.getElementById("header").style.backgroundColor = "green";
+    stopTimer();
 }
 
 function reload (){

@@ -41,11 +41,7 @@ body {
     margin-left: 20%;
     margin-right: 20%;
 }
-.color-right {
-    background-color: green;
-}
 
-.color-wrong {
-    background-color: red;
+#round-counter, #lives-counter, #countdown-timer {
+    font-weight: bolder;
 }
-

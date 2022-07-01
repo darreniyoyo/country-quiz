@@ -105,7 +105,7 @@ const countryImages = [
 },
 {
     "imgSource": "./images/usa.jpeg",
-    "answer": "united states of america"
+    "answer": "united states"
 },
 {
     "imgSource": "./images/south-africa.jpeg",
